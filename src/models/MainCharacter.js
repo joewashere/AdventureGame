@@ -17,114 +17,12 @@ export class MainCharacter extends Character {
         
         this.sprite = this.sprites.idle
         this.spriteMap = {
-            idleFront: [
-                {
-                    x: 0,
-                    y: 0
-                },
-                {
-                    x: 16,
-                    y: 0
-                },
-                {
-                    x: 32,
-                    y: 0
-                },
-                {
-                    x: 48,
-                    y: 0
-                }
-            ],
-            attack: [
-                {
-                    x: 0,
-                    y: 0
-                },
-                {
-                    x: 32,
-                    y: 0
-                },
-                {
-                    x: 64,
-                    y: 0
-                },
-                {
-                    x: 96,
-                    y: 0
-                }
-            ],
-            walkForward: [
-                {
-                    x: 0,
-                    y: 0
-                },
-                {
-                    x: 16,
-                    y: 0
-                },
-                {
-                    x: 32,
-                    y: 0
-                },
-                {
-                    x: 48,
-                    y: 0
-                }
-            ],
-            walkLeft: [
-                {
-                    x: 0,
-                    y: 16
-                },
-                {
-                    x: 16,
-                    y: 16
-                },
-                {
-                    x: 32,
-                    y: 16
-                },
-                {
-                    x: 48,
-                    y: 16
-                }
-            ],
-            walkBack: [
-                {
-                    x: 0,
-                    y: 32
-                },
-                {
-                    x: 16,
-                    y: 32
-                },
-                {
-                    x: 32,
-                    y: 32
-                },
-                {
-                    x: 48,
-                    y: 32
-                }
-            ],
-            walkRight: [
-                {
-                    x: 0,
-                    y: 48
-                },
-                {
-                    x: 16,
-                    y: 48
-                },
-                {
-                    x: 32,
-                    y: 48
-                },
-                {
-                    x: 48,
-                    y: 48
-                }
-            ]
+            idleFront: [{x: 0, y: 0},{x: 16, y: 0},{x: 32, y: 0},{x: 48, y: 0}],
+            walkForward: [{x: 0, y: 0},{x: 16, y: 0},{x: 32, y: 0},{x: 48, y: 0}],
+            walkLeft: [{x: 0, y: 16},{x: 16, y: 16},{x: 32, y: 16},{x: 48, y: 16}],
+            walkBack: [{x: 0, y: 32},{x: 16, y: 32},{x: 32, y: 32},{x: 48, y: 32}],
+            walkRight: [{x: 0, y: 48},{x: 16, y: 48},{x: 32, y: 48},{x: 48, y: 48}],
+            attack: [{x: 0, y: 0},{x: 32, y: 0},{x: 64, y: 0},{x: 96, y: 0}],
         };
 
         this.currentSprite = this.spriteMap.idleFront;

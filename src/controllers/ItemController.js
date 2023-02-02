@@ -19,7 +19,10 @@ export default class ItemController {
         this.coins.forEach((coin, index) => {
 
             // Detect if player walks across a coin
-            if(Math.abs(player.pos.x - coin.pos.x) < coin.w && Math.abs(player.pos.y - coin.pos.y) < coin.w){
+            if(
+                Math.abs(player.pos.x - coin.pos.x) < coin.w && 
+                Math.abs(player.pos.y - coin.pos.y) < coin.w
+            ){
                 this.coins.splice(index, 1);
                 player.coins++;
             }
