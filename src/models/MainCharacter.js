@@ -128,34 +128,6 @@ export class MainCharacter extends Character {
         this.currentSprite = this.spriteMap.idleFront;
     }
 
-    draw (c) {
-        c.drawImage(this.sprite, this.currentSprite[this.frame].x, this.currentSprite[this.frame].y, this.w, this.h, this.pos.x, this.pos.y, this.w, this.h);
-    }
-
-    update (c) {
-        let frames = this.currentSprite.length - 1;
-
-        if(this.framecount === 15) {
-            if(this.frame === frames){
-                this.frame = 0;
-                if(this.sprite === this.sprites.attack || this.sprite === this.sprites.walking){
-                    this.sprite = this.sprites.idle;
-                    this.currentSprite = this.spriteMap.idleFront;
-                    this.w = 16;
-                    this.h = 16;
-                }
-            } else {
-                this.frame++;
-            }
-
-
-            this.framecount = 0;
-        }
-        this.framecount++;
-
-        this.draw(c);
-    }
-
     attack () {
         this.frame = 0;
         this.sprite = this.sprites.attack;
@@ -164,26 +136,34 @@ export class MainCharacter extends Character {
         this.h = 32;
     }
 
-    move (d) {
+    move(d) {
         this.walking = true;
         this.sprite = this.sprites.walking;
-        switch(d){
-            case 'ArrowDown':
-                this.pos.y = this.pos.y + this.speed;
-                this.currentSprite = this.spriteMap.walkForward;
-                break;
-            case 'ArrowUp':
-                this.pos.y = this.pos.y - this.speed;
-                this.currentSprite = this.spriteMap.walkBack;
-                break;
-            case 'ArrowLeft':
-                this.pos.x = this.pos.x - this.speed;
-                this.currentSprite = this.spriteMap.walkLeft;
-                break;
-            case 'ArrowRight':
-                this.pos.x = this.pos.x + this.speed;
-                this.currentSprite = this.spriteMap.walkRight;
-                break;
-        }
-    }
+    
+        const directionMap = {
+          ArrowDown: {
+            posChange: { y: this.speed },
+            sprite: this.spriteMap.walkForward
+          },
+          ArrowUp: {
+            posChange: { y: -this.speed },
+            sprite: this.spriteMap.walkBack
+          },
+          ArrowLeft: {
+            posChange: { x: -this.speed },
+            sprite: this.spriteMap.walkLeft
+          },
+          ArrowRight: {
+            posChange: { x: this.speed },
+            sprite: this.spriteMap.walkRight
+          }
+        };
+    
+        const direction = directionMap[d];
+        if (!direction) return;
+    
+        this.pos.x += direction.posChange.x || 0;
+        this.pos.y += direction.posChange.y || 0;
+        this.currentSprite = direction.sprite;
+      }
 }

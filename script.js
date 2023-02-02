@@ -10,12 +10,7 @@ const controller = new GameController();
 
 function animate(){
     requestAnimationFrame(animate);
-    
-    c.clearRect(0, 0, canvas.width, canvas.height);
-    
-    let player = controller.player;
-    controller.drawBackground(c, canvas.width, canvas.height);
-    player.update(c);
+    controller.updateFrame(c, canvas.width, canvas.height);
 }
 
 animate();

@@ -1,9 +1,11 @@
 import CharacterController from "./controllers/CharacterController.js";
+import EnemyController from "./controllers/EnemyController.js";
 import { importSprite } from "./helpers/importSprite.js";
 
 export default class GameController {
     constructor () {
         this.player = new CharacterController({ x:55, y:55, w:16, h:16 });
+        this.enemy = new EnemyController({ x:155, y:155, w:16, h:16 })
     }
 
     drawBackground (c, w, h) {
@@ -35,5 +37,13 @@ export default class GameController {
         c.moveTo(0, h-5);
         c.lineTo(w-5, h-5);
         c.stroke();
+    }
+
+    updateFrame(c, w, h){
+        c.clearRect(0, 0, w, h);
+        
+        this.drawBackground(c, w, h);
+        this.enemy.update(c);
+        this.player.update(c);
     }
 }
