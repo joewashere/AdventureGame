@@ -6,6 +6,8 @@ export class MainCharacter extends Character {
         super({ x, y, w, h });
 
         this.speed = 3;
+        this.life = 100;
+        this.coins = 0;
 
         this.sprites = {
             idle: importSprite('../../assets/Character/Char1/Char1_idle_16px.png'),
