@@ -14,4 +14,12 @@ export default class UserInterface {
     update (c, life, coins) {
         this.draw(c, life, coins);
     }
+
+    gameOver (c) {
+        c.fillStyle ='#FFF';
+        c.fillRect((window.innerWidth/2) - 200, (window.innerHeight/2) - 100, 200, 100);
+        c.font = "32px serif";
+        c.fillStyle ='#000';
+        c.fillText(`YOU LOSE!`, (window.innerWidth/2) - 180, (window.innerHeight/2) - 35);
+    }
 }

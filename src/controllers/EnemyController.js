@@ -22,7 +22,7 @@ export default class EnemyController extends EnemyCharacter {
                 this.pos.y--;
             }
 
-            if(Math.abs(player.pos.x - this.pos.x) < 10 && Math.abs(player.pos.y - this.pos.y) < 10 && player.life !== 0){
+            if(Math.abs(player.pos.x - this.pos.x) < this.w && Math.abs(player.pos.y - this.pos.y) < this.h && player.life !== 0){
                 player.life--;
             }
         } else {
