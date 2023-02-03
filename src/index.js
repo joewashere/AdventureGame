@@ -46,8 +46,8 @@ export default class GameController {
     updateFrame (c, w, h) {
         c.clearRect(0, 0, w, h);
         this.drawBackground(c, w, h);
-        this.ui.update(c, 100, this.player.coins);
-        this.enemy.update(c);
+        this.ui.update(c, this.player.life, this.player.coins);
+        this.enemy.update(c, this.player);
         this.player.update(c);
         this.items.update(c, this.player);
     }
