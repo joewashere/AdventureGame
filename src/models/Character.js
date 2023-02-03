@@ -1,5 +1,5 @@
 export default class Character {
-    constructor ({ x, y, w, h}) {
+    constructor ({ x, y, w, h }) {
         // Set position of character
         this.pos = { x, y };
 

@@ -5,7 +5,7 @@ export default class EnemyController extends EnemyCharacter {
         super({ x, y, w, h });
     }
 
-    update(c){
+    update (c) {
         super.update(c);
     }
 }

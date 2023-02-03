@@ -11,7 +11,7 @@ export default class CharacterController extends MainCharacter {
 
         // Handle the attack action with the space bar
         document.addEventListener('keydown', (e) => {
-            if(e.key === ' '){
+            if(e.key === ' ') {
                this.attack();
             }
         });

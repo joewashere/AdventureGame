@@ -13,16 +13,16 @@ export class MainCharacter extends Character {
             idle: importSprite('../../assets/Character/Char1/Char1_idle_16px.png'),
             attack: importSprite('../../assets/Character/Char1/Char1_Sword_32px.png'),
             walking: importSprite('../../assets/Character/Char1/Char1_walk_16px.png'),
-        }
-        
-        this.sprite = this.sprites.idle
+        };
+
+        this.sprite = this.sprites.idle;
         this.spriteMap = {
-            idleFront: [{x: 0, y: 0},{x: 16, y: 0},{x: 32, y: 0},{x: 48, y: 0}],
-            walkForward: [{x: 0, y: 0},{x: 16, y: 0},{x: 32, y: 0},{x: 48, y: 0}],
-            walkLeft: [{x: 0, y: 16},{x: 16, y: 16},{x: 32, y: 16},{x: 48, y: 16}],
-            walkBack: [{x: 0, y: 32},{x: 16, y: 32},{x: 32, y: 32},{x: 48, y: 32}],
-            walkRight: [{x: 0, y: 48},{x: 16, y: 48},{x: 32, y: 48},{x: 48, y: 48}],
-            attack: [{x: 0, y: 0},{x: 32, y: 0},{x: 64, y: 0},{x: 96, y: 0}],
+            idleFront: [{ x: 0, y: 0 },{ x: 16, y: 0 },{ x: 32, y: 0 },{ x: 48, y: 0 }],
+            walkForward: [{ x: 0, y: 0 },{ x: 16, y: 0 },{ x: 32, y: 0 },{ x: 48, y: 0 }],
+            walkLeft: [{ x: 0, y: 16 },{ x: 16, y: 16 },{ x: 32, y: 16 },{ x: 48, y: 16 }],
+            walkBack: [{ x: 0, y: 32 },{ x: 16, y: 32 },{ x: 32, y: 32 },{ x: 48, y: 32 }],
+            walkRight: [{ x: 0, y: 48 },{ x: 16, y: 48 },{ x: 32, y: 48 },{ x: 48, y: 48 }],
+            attack: [{ x: 0, y: 0 },{ x: 32, y: 0 },{ x: 64, y: 0 },{ x: 96, y: 0 }],
         };
 
         this.currentSprite = this.spriteMap.idleFront;
@@ -36,10 +36,10 @@ export class MainCharacter extends Character {
         this.h = 32;
     }
 
-    move(d) {
+    move (d) {
         this.walking = true;
         this.sprite = this.sprites.walking;
-    
+
         const directionMap = {
           ArrowDown: {
             posChange: { y: this.speed },
@@ -58,10 +58,10 @@ export class MainCharacter extends Character {
             sprite: this.spriteMap.walkRight
           }
         };
-    
+
         const direction = directionMap[d];
-        if (!direction) return;
-    
+        if (!direction){return;}
+
         this.pos.x += direction.posChange.x || 0;
         this.pos.y += direction.posChange.y || 0;
         this.currentSprite = direction.sprite;

@@ -1,6 +1,6 @@
 export default class Item {
-    constructor ({x, y, w, h}) {
-        this.pos = {x, y};
+    constructor ({ x, y, w, h }) {
+        this.pos = { x, y };
         this.w = w;
         this.h = h;
     }

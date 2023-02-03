@@ -43,7 +43,7 @@ export default class GameController {
         c.stroke();
     }
 
-    updateFrame(c, w, h){
+    updateFrame (c, w, h) {
         c.clearRect(0, 0, w, h);
         this.drawBackground(c, w, h);
         this.ui.update(c, 100, this.player.coins);
